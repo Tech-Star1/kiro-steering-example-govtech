@@ -6,7 +6,7 @@ Build compliant government applications faster. This repo contains everything fr
 
 ---
 
-## � Whact Are Kiro Artifacts?
+## 🧩 What Are Kiro Artifacts?
 
 [Kiro](https://kiro.dev) is AWS's AI-powered IDE that helps developers build applications faster. But Kiro gets smarter when you give it context about your project, your standards, and your workflows. That's where **Kiro artifacts** come in.
 
@@ -28,8 +28,8 @@ Clone this repo, open it in Kiro, and these artifacts activate automatically. Us
 ```bash
 # 1. Install Kiro from kiro.dev
 # 2. Clone and open
-git clone https://github.com/aws-samples/kiro-artifacts-govtech.git
-cd kiro-artifacts-govtech
+git clone https://github.com/Tech-Star1/kiro-config-example-govtech.git
+cd kiro-config-example-govtech
 kiro .
 ```
 
@@ -159,7 +159,8 @@ compliance-check:
 ├── hooks/
 │   ├── accessibility-508-check.kiro.hook
 │   ├── ferpa-audit-docs.kiro.hook
-│   └── security-compliance-check.kiro.hook
+│   ├── security-compliance-check.kiro.hook
+│   └── security-compliance-check.md
 ├── settings/
 │   └── mcp.json
 ├── specs/
@@ -183,7 +184,7 @@ compliance-check:
 
 ---
 
-## � Aiuthor
+## ✍️ Author
 
 **Warner Bell** — Technical Account Manager, AWS Public Sector
 
