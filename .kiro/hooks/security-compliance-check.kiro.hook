@@ -1,0 +1,27 @@
+{
+  "enabled": true,
+  "name": "Security Compliance Checker",
+  "description": "Automatically verifies security and audit compliance when code is committed, checking for PII encryption, audit logging, authentication requirements, RBAC implementation, session timeouts, error message safety, SQL injection prevention, rate limiting, and hardcoded secrets.",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "**/*.ts",
+      "**/*.tsx",
+      "**/*.js",
+      "**/*.jsx",
+      "**/*.py",
+      "**/*.java",
+      "**/*.go",
+      "**/*.sql",
+      "**/*.env",
+      "**/*.yaml",
+      "**/*.yml",
+      "**/*.json"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "Review the changed code for security and audit compliance. Check for:\n\n1. **PII Encryption**: Verify citizen PII is encrypted at rest (AES-256) and in transit (TLS 1.2+)\n2. **Audit Logging**: Confirm audit logging is present for all citizen data access and modifications\n3. **Authentication**: Ensure authentication is required for all administrative functions\n4. **RBAC**: Verify role-based access control is implemented correctly with principle of least privilege\n5. **Session Timeout**: Check session timeout is configured (15 minutes)\n6. **Error Messages**: Ensure error messages don't expose sensitive information (no stack traces, internal paths, or PII in responses)\n7. **SQL Injection Prevention**: Verify database queries use parameterized statements\n8. **Rate Limiting**: Check API endpoints include rate limiting\n9. **Secrets Management**: Confirm no secrets, API keys, passwords, or credentials are hardcoded in source code\n\nGenerate a **Security Compliance Report** with:\n- ✅ Compliant items\n- ⚠️ Warnings (potential issues needing review)\n- ❌ Violations (must be fixed before deployment)\n\nFor each issue found, provide:\n- Location (file and line number)\n- Severity (Critical/High/Medium/Low)\n- Description of the concern\n- Specific fix recommendation based on security standards"
+  }
+}

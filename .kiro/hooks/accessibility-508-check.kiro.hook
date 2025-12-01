@@ -1,0 +1,20 @@
+{
+  "enabled": true,
+  "name": "Section 508 Accessibility Validator",
+  "description": "Automatically validates UI component code for Section 508 compliance when files are saved, checking for keyboard navigation, form labels, alt text, color contrast, ARIA attributes, and focus indicators.",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "**/*.tsx",
+      "**/*.jsx",
+      "**/*.vue",
+      "**/*.svelte",
+      "**/*.html"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "Review the saved UI component code for Section 508 compliance. Verify the following accessibility requirements:\n\n1. **Keyboard Navigation**: All interactive elements (buttons, links, form controls) must be keyboard accessible with proper tabindex and event handlers for keyboard interaction.\n\n2. **Form Labels**: All form inputs must have associated labels using `<label>` elements with `for` attribute, `aria-label`, or `aria-labelledby`.\n\n3. **Image Alt Text**: All `<img>` elements must have descriptive `alt` attributes. Decorative images should use `alt=\"\"`.\n\n4. **Color Contrast**: Flag any hardcoded colors that may not meet WCAG 2.1 Level AA contrast ratios (4.5:1 for normal text, 3:1 for large text 18pt+).\n\n5. **ARIA Attributes**: Complex components (modals, dropdowns, tabs, accordions) must have appropriate ARIA roles, states, and properties.\n\n6. **Focus Indicators**: Verify focus styles are not suppressed (no `outline: none` without replacement) and custom focus indicators are visible.\n\nGenerate an accessibility report with:\n- ✅ Compliant items\n- ⚠️ Warnings (potential issues needing review)\n- ❌ Violations (definite accessibility failures)\n\nFor each issue, provide the specific line/element and a concrete fix based on WCAG 2.1 Level AA guidelines."
+  }
+}

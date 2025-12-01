@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "name": "FERPA Audit Documentation",
+  "description": "Automatically generates and updates audit documentation when code is committed. Tracks API endpoint changes, student data access patterns, authorization requirements, FERPA compliance considerations, security controls, and flags changes requiring security team review. Maintains documentation in standard format for compliance audits.",
+  "version": "1",
+  "when": {
+    "type": "agentEnd"
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "Review the code changes made in this session and update the FERPA audit documentation. Analyze and document:\n\n1. **API Endpoint Changes**: List any new, modified, or removed API endpoints with their parameters, authentication requirements, and data they access.\n\n2. **Student Data Access Patterns**: Identify any code that reads, writes, or processes student data (PII, grades, enrollment, financial aid, etc.). Document the data flow and storage locations.\n\n3. **Authorization Requirements**: Document access control mechanisms, role-based permissions, and authentication flows related to student data.\n\n4. **FERPA Compliance Considerations**: Flag any new features that may impact FERPA compliance, including:\n   - Directory information handling\n   - Consent requirements for data disclosure\n   - Parent vs. student access rights\n   - Third-party data sharing\n\n5. **Security Controls Implemented**: Document encryption, logging, access controls, and data protection measures in the changed code.\n\n6. **Security Team Review Required**: Flag changes that require security team review before deployment, such as:\n   - New data collection points\n   - Changes to authentication/authorization\n   - Third-party integrations\n   - Data export or reporting features\n\nUpdate or create documentation in `Docs/Audit/FERPA-Compliance.md` using a standard audit-ready format with timestamps, change descriptions, and compliance status."
+  }
+}
